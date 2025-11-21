@@ -49,7 +49,7 @@ actor DNSUpdater {
     private let config = CloudflareConfig()
     private let zones = [
         DNSZone(domain: "your-cloudflare-domain1", zoneId: "your-cloudflare-zoneid1"), //edit me
-        DNSZone(domain: "your-cloudflare-domain2", zoneId: "your-cloudflare-zoneid2"), //edmit me
+        DNSZone(domain: "your-cloudflare-domain2", zoneId: "your-cloudflare-zoneid2"), //edit me
     ]
     
     private var dnsRecordCache: [String: DNSRecord] = [:]
