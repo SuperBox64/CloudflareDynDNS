@@ -38,9 +38,9 @@ struct CloudflareError: Codable {
 }
 
 struct CloudflareConfig {
-    let email = "your-cloudflar-email-address"
-    let apiKey = "your-cloudflare-api-key"
-    let bearerToken = "your-cloudflare-bearer-toke"
+    let email = "your-cloudflare-email-address" //edit me
+    let apiKey = "your-cloudflare-api-key" //edit me
+    let bearerToken = "your-cloudflare-bearer-token" //edit me
 }
 
 // MARK: - DNS Updater
@@ -48,8 +48,8 @@ struct CloudflareConfig {
 actor DNSUpdater {
     private let config = CloudflareConfig()
     private let zones = [
-        DNSZone(domain: "your-cloudflare-domain1", zoneId: "your-cloudflare-zoneid1"),
-        DNSZone(domain: "your-cloudflare-domain2", zoneId: "your-cloudflare-zoneid2"),
+        DNSZone(domain: "your-cloudflare-domain1", zoneId: "your-cloudflare-zoneid1"), //edit me
+        DNSZone(domain: "your-cloudflare-domain2", zoneId: "your-cloudflare-zoneid2"), //edmit me
     ]
     
     private var dnsRecordCache: [String: DNSRecord] = [:]
