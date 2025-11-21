@@ -7,6 +7,7 @@
 //  (c) 2025 Logos InkPen LLC, InkPen.IO
 
 import Foundation
+import CryptoKit
 
 // MARK: - Models
 
@@ -114,12 +115,16 @@ actor DNSUpdater {
             let records = try await performDNSRecordFetch(zoneId: zone.zoneId)
             
             // Find A record matching the domain
-            if let aRecord = records.first(where: { $0.name == zone.domain && $0.type == "A" }) {
-                dnsRecordCache[zone.domain] = aRecord
-                log("✅ \(zone.domain) - DNS ID: \(aRecord.id)")
-            } else {
-                log("⚠️  \(zone.domain) - No A record found")
-            }
+            if let aRecord = records.first(where: { $0.name == zone.domain && $0.type
+              == "A" }) {
+                  dnsRecordCache[zone.domain] = aRecord
+                let idData = Data(aRecord.id.utf8)
+                let hash = SHA256.hash(data: idData)
+                let hashString = hash.compactMap { String(format: "%02x", $0) }.joined()
+                log("✅ \(zone.domain) - SHA256 DNS ID: \(hashString)")
+              } else {
+                  log("⚠️  \(zone.domain) - No A record found")
+              }
         } catch {
             log("❌ \(zone.domain) - Failed to fetch DNS records: \(error.localizedDescription)")
         }
