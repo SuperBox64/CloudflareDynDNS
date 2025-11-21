@@ -60,7 +60,7 @@ actor DNSUpdater {
         log("")
         
         // Run immediately on startup
-        log("▶️  Running initial update...")
+        log("▶️ Running initial update...")
         await executeUpdate()
         log("")
         
