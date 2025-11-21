@@ -4,7 +4,8 @@
 //
 //  Created by Todd Bruss
 //  Runs now and 24/7 and executes at 12:00 AM UTC daily
-//  (c) 2025 Logos InkPen LLC, InkPen.IO
+//  (c) 2026 Logos InkPen LLC, InkPen.IO
+//  (c) 2026 SuperBox64 LLC, SuperBox64.com
 
 import Foundation
 import CryptoKit
